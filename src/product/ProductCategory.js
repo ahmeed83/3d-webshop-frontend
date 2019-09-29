@@ -1,32 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import { Card, CardHeader, CardBody, ListGroup, ListGroupItem } from "reactstrap";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  ListGroup,
+  ListGroupItem
+} from "reactstrap";
 
 function ProductCategory() {
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+  const [categories, setCategories] = useState([]);
+
+  const fetchCategories = async () => {
+    try {
+      const data = await fetch("/api/products/categories");
+      const categories = await data.json();
+      setCategories(categories);
+    } catch (error) {
+      console.log("reason: " + error);
+    }
+  };
+
   return (
     <Card body>
       <CardHeader>Categories</CardHeader>
       <CardBody>
-        <ListGroup flush>
-          <ListGroupItem tag="a" href="#">
-            Computers
-          </ListGroupItem>
-          <ListGroupItem tag="a" href="#">
-            Laptops
-          </ListGroupItem>
-          <ListGroupItem tag="a" href="#">
-            Mobile telefoons
-          </ListGroupItem>
-          <ListGroupItem tag="a" href="#">
-            Computer tools
-          </ListGroupItem>
-          <ListGroupItem tag="a" href="#">
-            Moniters
-          </ListGroupItem>
-          <ListGroupItem tag="a" href="#">
-            tools
-          </ListGroupItem>
-        </ListGroup>
+        {categories.map(category  => (
+          <ListGroup flush>
+            <ListGroupItem tag="a" href="#">
+            {category.name}
+            </ListGroupItem>
+          </ListGroup>
+        ))}
       </CardBody>
     </Card>
   );

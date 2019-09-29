@@ -3,7 +3,11 @@ import React from "react";
 import {
   Card,
   CardBody,
-  CardHeader
+  CardHeader,
+  InputGroup,
+  Input,
+  Button,
+  InputGroupAddon
 } from "reactstrap";
 
 function ProductSearch() {
@@ -11,14 +15,16 @@ function ProductSearch() {
     <Card body>
       <CardHeader>Search</CardHeader>
       <CardBody>
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." />
-          <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button">
-              Go!
-            </button>
-          </span>
-        </div>
+        <InputGroup>
+          <Input
+            type="text"
+            className="form-control"
+            placeholder="Search for..."
+          ></Input>
+          <InputGroupAddon addonType="append">
+          <Button color="secondary">Go!</Button>
+          </InputGroupAddon>
+        </InputGroup>
       </CardBody>
     </Card>
   );
