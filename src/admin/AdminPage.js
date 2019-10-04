@@ -5,7 +5,7 @@ import AdminTableProduct from "./AdminTableProduct";
 
 function AdminPage() {
   return (
-    <Container fluid>
+    <Container className="text-dark">
       <AdminAddProduct />
       <AdminTableProduct />
     </Container>

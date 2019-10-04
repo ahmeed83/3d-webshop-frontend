@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Input,
   Jumbotron,
@@ -11,7 +11,10 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  CustomInput,
+  FormText,
+  Row
 } from "reactstrap";
 
 function AdminAddProduct(props) {
@@ -21,6 +24,24 @@ function AdminAddProduct(props) {
   const [getQuantity, setQuantity] = useState("");
   const [getCategoryId, setCategoryId] = useState("");
   const [getCategoryName, setCategoryName] = useState("");
+  const [getProductName, setProductName] = useState("");
+
+  const [categories, setCategories] = useState([]);
+  const [getImage, setImage] = useState("");
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  const fetchCategories = async () => {
+    try {
+      const data = await fetch("/api/products/categories");
+      const categories = await data.json();
+      setCategories(categories);
+    } catch (error) {
+      console.log("reason: " + error);
+    }
+  };
 
   const createCategory = event => {
     fetch("/api/products/add-category", {
@@ -38,6 +59,10 @@ function AdminAddProduct(props) {
 
   const createProduct = event => {
     event.preventDefault();
+
+    const fd = new FormData();
+    fd.append('image' , getImage);
+
     fetch("/api/products", {
       method: "POST",
       headers: {
@@ -46,6 +71,8 @@ function AdminAddProduct(props) {
       },
       body: JSON.stringify({
         code: getCode,
+        name: getProductName,
+        // image: fd,
         description: getDescription,
         price: getPrice,
         quantity: getQuantity,
@@ -57,6 +84,7 @@ function AdminAddProduct(props) {
 
   return (
     <Jumbotron>
+      {/* Category section */}
       <h5 className="mb-3">Category</h5>
       <Card className="p-4">
         <Form onSubmit={createCategory}>
@@ -79,6 +107,8 @@ function AdminAddProduct(props) {
           </FormGroup>
         </Form>
       </Card>
+
+      {/* Product section */}
       <h5 className="mt-3">Product</h5>
       <Card className="mt-3 p-4">
         <Form onSubmit={createProduct}>
@@ -90,16 +120,37 @@ function AdminAddProduct(props) {
               <UncontrolledDropdown direction="right">
                 <DropdownToggle caret>Categories</DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>Another Action</DropdownItem>
-                  <DropdownItem>Another Action</DropdownItem>
+                  {categories.map(category => (
+                    <div key={category.id}>
+                      <DropdownItem
+                        value={category.id}
+                        onClick={e => setCategoryId(e.target.value)}
+                      >
+                        {category.name}
+                      </DropdownItem>
+                    </div>
+                  ))}
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Col>
             <Label sm={2}></Label>
-            <Col sm={3}>
-              <Button color="info">Upload picture for the product</Button>
+            <Col sm={4}>
+              <FormGroup>
+                <FormText color="muted">
+                  Please use only files thats end up with .jpg, .jpeg or .png
+                </FormText>
+                <CustomInput
+                  accept=".jpg,.jpeg,.png"
+                  type="file"
+                  name="file"
+                  label={getImage}
+                  id="exampleFile"
+                  onChange={e => setImage(e.target.value)}
+                />
+              </FormGroup>
             </Col>
           </FormGroup>
+
           <FormGroup row>
             <Label for="productName" sm={2}>
               Add Product Name
@@ -109,14 +160,14 @@ function AdminAddProduct(props) {
                 type="productName"
                 name="productName"
                 id="productName"
-                value={getDescription}
-                onChange={e => setDescription(e.target.value)}
+                value={getProductName}
+                onChange={e => setProductName(e.target.value)}
               />
             </Col>
             <Label for="productCode" sm={2}>
               Add Product Code
             </Label>
-            <Col sm={3}>
+            <Col sm={4}>
               <Input
                 type="productCode"
                 name="productCode"
@@ -142,9 +193,8 @@ function AdminAddProduct(props) {
             <Label for="price" sm={2}>
               Add Price
             </Label>
-            <Col sm={3}>
+            <Col sm={4}>
               <Input
-                type="price"
                 name="price"
                 id="price"
                 min={0}
@@ -161,12 +211,22 @@ function AdminAddProduct(props) {
               Add product description
             </Label>
             <Col sm={10}>
-              <textarea className="form-control" rows="3"></textarea>
+              <textarea
+                className="form-control"
+                type="productName"
+                name="productName"
+                id="productName"
+                value={getDescription}
+                onChange={e => setDescription(e.target.value)}
+                rows="3"
+              ></textarea>
             </Col>
           </FormGroup>
-          <Button className="mt-3" type="submit" color="primary" size="lg">
-            Add product
-          </Button>
+          <Row>
+            <Button className="mt-3" type="submit" color="primary" size="lg">
+              Add product
+            </Button>
+          </Row>
         </Form>
       </Card>
     </Jumbotron>
