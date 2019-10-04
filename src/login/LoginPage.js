@@ -16,7 +16,7 @@ import { GoogleLoginButton } from "react-social-login-buttons";
 
 function AdminPage() {
   return (
-    <Form className="login-form">
+    <Form className="login-form text-dark">
       <Jumbotron>
         <h2 className="text-center mb-4">Welcome!</h2>
         <FormGroup row>

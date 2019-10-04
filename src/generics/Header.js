@@ -4,13 +4,16 @@ import { Icon } from "react-icons-kit";
 import { shoppingCart } from "react-icons-kit/fa/shoppingCart";
 import "./Header.css";
 
+import ProductSearch from "../product/ProductSearch";
+
+
 function Header() {
   const navStyle = {
     color: "lightblue"
   };
 
   return (
-    <Navbar color="dark" dark expand="md">
+    <Navbar style={navStyle} dark expand="md">
       <div className="navbar-brand">
         <img
           className="circular"
@@ -20,18 +23,23 @@ function Header() {
       </div>
       <NavbarBrand href="/">3D Computers</NavbarBrand>
       <Nav className="ml-auto" navbar>
+      <NavItem>
+          <NavLink href="#">
+          <ProductSearch />
+          </NavLink>
+        </NavItem>
         <NavItem>
-          <NavLink style={navStyle} href="/admin/">
+          <NavLink href="/admin/">
             Admin Page
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink style={navStyle} href="/">
+          <NavLink href="/cart">
             <Icon size={32} icon={shoppingCart} />
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink style={navStyle} href="/login/">
+          <NavLink href="/login/">
             Login
           </NavLink>
         </NavItem>
@@ -41,3 +49,11 @@ function Header() {
 }
 
 export default Header;
+       {/* <Col lg="3">
+          <div className="mt-3">
+            <ProductSearch />
+          </div>
+          <div className="mt-3">
+            <ProductCategory />
+          </div>
+        </Col> */}

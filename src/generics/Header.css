@@ -4,3 +4,7 @@
   height: 70px;
   border-radius: 150px;
 }
+
+.backround-header {
+  background-color: rgb(10, 8, 49);
+}
