@@ -54,9 +54,9 @@ function AdminPage() {
         </Col>
         <Col sm={{ size: 8, offset: 3 }}>
           <div className="text-center mt-3 pt-3">
-            <a href="#"> Sign up </a>
+            <a href="/"> Sign up </a>
             <span className="text-center">|</span>
-            <a href="#"> Forgot Password </a>
+            <a href="/"> Forgot Password </a>
           </div>
         </Col>
       </Jumbotron>

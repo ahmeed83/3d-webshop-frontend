@@ -1,43 +1,19 @@
 import React, { useState, useEffect } from "react";
-import {
-  Container,
-  Col,
-  Row,
-  Button,
-  Form,
-  Label,
-  Input
-} from "reactstrap";
+import { Container, Col, Row, Button, Form, Label, Input } from "reactstrap";
 import FormGroup from "reactstrap/lib/FormGroup";
 
 function ProductDetailsPage({ match }) {
-  useEffect(() => {
-    fetchProduct();
-  }, []);
-
-  const [getCart, setCart] = useState([]);
-
-  const createShoppingCart = async () => {
-    fetch("/api/shopping-card", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        id: 1
-      })
-    });
-  }
-
   const [product, setProduct] = useState([]);
   const [getQuantity, setQuantity] = useState(1);
 
-  const fetchProduct = async () => {
-    const data = await fetch(`/api/products/${match.params.id}`);
-    const product = await data.json();
-    setProduct(product);
-  };
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const data = await fetch(`/api/products/${match.params.id}`);
+      const product = await data.json();
+      setProduct(product);
+    };
+    fetchProduct();
+  }, [match.params.id]);
 
   const addProductToShoppingCart = event => {
     event.preventDefault();
@@ -71,9 +47,7 @@ function ProductDetailsPage({ match }) {
         </Col>
         <Col md="4">
           <Form onSubmit={addProductToShoppingCart}>
-            <h2 className="my-3">
-            {product.name}
-            </h2>
+            <h2 className="my-3">{product.name}</h2>
             <h5>{product.description}</h5>
             <hr />
             <FormGroup>

@@ -49,11 +49,3 @@ function Header() {
 }
 
 export default Header;
-       {/* <Col lg="3">
-          <div className="mt-3">
-            <ProductSearch />
-          </div>
-          <div className="mt-3">
-            <ProductCategory />
-          </div>
-        </Col> */}

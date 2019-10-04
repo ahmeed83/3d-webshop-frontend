@@ -8,7 +8,7 @@ const ListProductsProvider = props => {
   }, []);
 
   const [getProducts, setProducts] = useState([]);
-  const [getDeleteProducts, setDeleteProducts] = useState([]);
+  const [, setDeleteProducts] = useState([]);
 
   const fetchProducts = async () => {
     try {
