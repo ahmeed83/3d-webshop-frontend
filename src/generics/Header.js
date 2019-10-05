@@ -6,7 +6,6 @@ import "./Header.css";
 
 import ProductSearch from "../product/ProductSearch";
 
-
 function Header() {
   const navStyle = {
     color: "lightblue"
@@ -23,15 +22,8 @@ function Header() {
       </div>
       <NavbarBrand href="/">3D Computers</NavbarBrand>
       <Nav className="ml-auto" navbar>
-      <NavItem>
-          <NavLink href="#">
-          <ProductSearch />
-          </NavLink>
-        </NavItem>
         <NavItem>
-          <NavLink href="/admin/">
-            Admin Page
-          </NavLink>
+          <NavLink href="/admin/">Admin Page</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="/cart">
@@ -39,9 +31,7 @@ function Header() {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/login/">
-            Login
-          </NavLink>
+          <NavLink href="/login/">Login</NavLink>
         </NavItem>
       </Nav>
     </Navbar>
