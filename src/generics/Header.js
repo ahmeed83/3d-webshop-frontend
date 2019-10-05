@@ -4,8 +4,6 @@ import { Icon } from "react-icons-kit";
 import { shoppingCart } from "react-icons-kit/fa/shoppingCart";
 import "./Header.css";
 
-import ProductSearch from "../product/ProductSearch";
-
 function Header() {
   const navStyle = {
     color: "lightblue"

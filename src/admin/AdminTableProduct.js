@@ -37,7 +37,7 @@ function AdminTableProduct() {
                     <tbody key={product.id}>
                       <tr>
                         <th scope="row">{index}</th>
-                        <td>{product.category}</td>
+                        <td>{product.categoryName}</td>
                         <td>{product.name}</td>
                         <td>{product.code}</td>
                         <td>{product.price}</td>
