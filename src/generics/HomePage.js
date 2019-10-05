@@ -8,9 +8,6 @@ function HomePage() {
     <Container>
       <Row>
         <Col lg="12">
-          <div>
-            hello
-          </div>
           <div className="mt-3">
             <ProductCarouse />
           </div>
