@@ -1,9 +1,9 @@
 import React from "react";
 import { Row, Col, Card, CardImg, Button } from "reactstrap";
 
-function CardListItem({ value }) {
+function CartListItem({ value }) {
   const deleteItem = id => {
-    fetch(`/api/shopping-card/${id}`, {
+    fetch(`/api/shopping-cart/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: id })
@@ -13,11 +13,11 @@ function CardListItem({ value }) {
 
   return (
     <Card className="mt-3" body>
-      {value.map(cardItem => (
-        <Row key={cardItem.id}>
+      {value.map(cartItem => (
+        <Row key={cartItem.id}>
           <Col sm="3" className="my-7">
             <a
-              href={`/product/${cardItem.productId.id}`}
+              href={`/product/${cartItem.productId.id}`}
               className="stretched-link"
             >
               <CardImg
@@ -30,15 +30,15 @@ function CardListItem({ value }) {
             </a>
           </Col>
           <Col sm="6" className="my-5">
-            <p>Name: {cardItem.productId.name}</p>
-            <p>Price: {cardItem.productId.price} $</p>
-            <p>Quantity: {cardItem.quantity}</p>
+            <p>Name: {cartItem.productId.name}</p>
+            <p>Price: {cartItem.productId.price} $</p>
+            <p>Quantity: {cartItem.quantity}</p>
           </Col>
           <Col sm="3" className="my-5">
             <Button
               href="#"
               color="danger"
-              onClick={() => deleteItem(cardItem.id)}
+              onClick={() => deleteItem(cartItem.id)}
             >
               Remove from order list
             </Button>
@@ -50,4 +50,4 @@ function CardListItem({ value }) {
   );
 }
 
-export default CardListItem;
+export default CartListItem;

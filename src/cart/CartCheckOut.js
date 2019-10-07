@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Button, Card, CardHeader, CardBody, Form } from "reactstrap";
 
-function CardCheckout({ value }) {
+function CartCheckOut({ value }) {
   const sendOrder = event => {
     event.preventDefault();
     fetch("/api/send-email", {
@@ -51,4 +51,4 @@ function CardCheckout({ value }) {
   );
 }
 
-export default CardCheckout;
+export default CartCheckOut;

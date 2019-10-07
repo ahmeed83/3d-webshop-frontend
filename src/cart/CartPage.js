@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "reactstrap";
-import CardCheckout from "./CardCheckout";
-import CardListItem from "./CardListItem";
-import CardEmptyPage from "./CardEmptyPage";
+import CartCheckOut from "./CartCheckOut";
+import CartListItem from "./CartListItem";
+import CartEmptyPage from "./CartEmptyPage";
 
 function CartPage() {
   useEffect(() => {
     fetchProducts();
   }, []);
   const [getCart, setCart] = useState([]);
-  const [cardItems, setCardItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   const [orderAvaliable, setOrderAvaliable] = useState([]);
 
   const fetchProducts = async () => {
     try {
-      const data = await fetch("/api/shopping-card");
+      const data = await fetch("/api/shopping-cart");
       const cart = await data.json();
       setCart(cart);
-      setCardItems(cart.shoppingCardItemEntities);
+      setCartItems(cart.shoppingCartItemEntities);
       
-      if (cart.shoppingCardItemEntities.length === 0) {
+      if (cart.shoppingCartItemEntities.length === 0) {
         setOrderAvaliable(false);
       }
     } catch (error) {
@@ -32,11 +32,11 @@ function CartPage() {
     <Container className="text-dark">
       {orderAvaliable ? (
         <div>
-          <CardCheckout value={getCart} />
-          <CardListItem value={cardItems} />
+          <CartCheckOut value={getCart} />
+          <CartListItem value={cartItems} />
         </div>
       ) : (
-        <CardEmptyPage />
+        <CartEmptyPage />
       )}
     </Container>
   );

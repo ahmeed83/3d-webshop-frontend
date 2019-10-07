@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Card, CardImg } from "reactstrap";
 
-function CardEmptyPage() {
+function CartEmptyPage() {
   return (
     <Card className="mt-3" body>
       <Row>
@@ -23,4 +23,4 @@ function CardEmptyPage() {
   );
 }
 
-export default CardEmptyPage;
+export default CartEmptyPage;

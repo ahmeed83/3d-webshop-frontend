@@ -18,7 +18,7 @@ function ProductDetailsPage({ match }) {
   const addProductToShoppingCart = event => {
     event.preventDefault();
 
-    fetch("/api/shopping-card/add-item", {
+    fetch("/api/shopping-cart/add-item", {
       method: "POST",
       headers: {
         Accept: "application/json",
