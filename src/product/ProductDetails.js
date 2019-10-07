@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Col, Row, Button, Form, Label, Input } from "reactstrap";
 import FormGroup from "reactstrap/lib/FormGroup";
 
-function ProductDetailsPage({ match }) {
+const ProductDetailsPage = ({match}) => {
   const [product, setProduct] = useState([]);
   const [getQuantity, setQuantity] = useState(1);
 
@@ -70,5 +70,5 @@ function ProductDetailsPage({ match }) {
       </Row>
     </Container>
   );
-}
+};
 export default ProductDetailsPage;

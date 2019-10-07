@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 //   ListGroupItem
 // } from "reactstrap";
 
-function ProductCategory() {
+const ProductCategory = () => {
   useEffect(() => {
     fetchCategories();
   }, []);
@@ -24,19 +24,19 @@ function ProductCategory() {
     }
   };
 
-  return ("");
-//   <Card body>
-//   <CardHeader>Categories</CardHeader>
-//   <CardBody>
-//     {categories.map(category => (
-//       <ListGroup flush key={category.id}>
-//         <ListGroupItem tag="a" href="#">
-//           {category.name}
-//         </ListGroupItem>
-//       </ListGroup>
-//     ))}
-//   </CardBody>
-// </Card>
-}
+  return "";
+  //   <Card body>
+  //   <CardHeader>Categories</CardHeader>
+  //   <CardBody>
+  //     {categories.map(category => (
+  //       <ListGroup flush key={category.id}>
+  //         <ListGroupItem tag="a" href="#">
+  //           {category.name}
+  //         </ListGroupItem>
+  //       </ListGroup>
+  //     ))}
+  //   </CardBody>
+  // </Card>
+};
 
 export default ProductCategory;

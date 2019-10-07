@@ -4,11 +4,10 @@ import { Icon } from "react-icons-kit";
 import { shoppingCart } from "react-icons-kit/fa/shoppingCart";
 import "./Header.css";
 
-function Header() {
+const Header = () => {
   const navStyle = {
     color: "lightblue"
   };
-
   return (
     <Navbar style={navStyle} dark expand="md">
       <div className="navbar-brand">
@@ -34,6 +33,6 @@ function Header() {
       </Nav>
     </Navbar>
   );
-}
+};
 
 export default Header;

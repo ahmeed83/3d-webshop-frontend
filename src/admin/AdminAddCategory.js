@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Input, Button, FormGroup, Form, Label, Col, Card } from "reactstrap";
 
-function AdminAddCategory() {
+const AdminAddCategory = () => {
   const [getCategoryName, setCategoryName] = useState("");
 
   const createCategory = event => {
@@ -44,6 +44,6 @@ function AdminAddCategory() {
       </Card>
     </div>
   );
-}
+};
 
 export default AdminAddCategory;

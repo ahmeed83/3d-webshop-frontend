@@ -3,7 +3,7 @@ import ProductList from "../product/ProductList";
 import ProductCarouse from "../product/ProductCarouse";
 import { Container, Col, Row } from "reactstrap";
 
-function HomePage() {
+const HomePage = () => {
   return (
     <Container>
       <Row>
@@ -18,5 +18,6 @@ function HomePage() {
       </Row>
     </Container>
   );
-}
+};
+
 export default HomePage;

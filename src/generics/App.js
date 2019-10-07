@@ -12,7 +12,7 @@ import { Container } from "reactstrap";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CartPage from "../cart/CartPage";
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Container className="backround-app text-white" fluid>
@@ -28,6 +28,6 @@ function App() {
       <Footer />
     </Router>
   );
-}
+};
 
 export default App;

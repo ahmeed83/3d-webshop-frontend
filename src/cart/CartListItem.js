@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Card, CardImg, Button } from "reactstrap";
 
-function CartListItem({ value }) {
+const CartListItem = ({ value }) => {
   const deleteItem = id => {
     fetch(`/api/shopping-cart/${id}`, {
       method: "DELETE",
@@ -48,6 +48,6 @@ function CartListItem({ value }) {
       ))}
     </Card>
   );
-}
+};
 
 export default CartListItem;

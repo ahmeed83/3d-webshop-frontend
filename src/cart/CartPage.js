@@ -4,7 +4,7 @@ import CartCheckOut from "./CartCheckOut";
 import CartListItem from "./CartListItem";
 import CartEmptyPage from "./CartEmptyPage";
 
-function CartPage() {
+const CartPage = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -18,7 +18,7 @@ function CartPage() {
       const cart = await data.json();
       setCart(cart);
       setCartItems(cart.shoppingCartItemEntities);
-      
+
       if (cart.shoppingCartItemEntities.length === 0) {
         setOrderAvaliable(false);
       }
@@ -40,6 +40,6 @@ function CartPage() {
       )}
     </Container>
   );
-}
+};
 
 export default CartPage;

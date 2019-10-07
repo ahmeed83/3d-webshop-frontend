@@ -14,7 +14,7 @@ import {
 import { FacebookLoginButton } from "react-social-login-buttons";
 import { GoogleLoginButton } from "react-social-login-buttons";
 
-function AdminPage() {
+const LoginPage = () => {
   return (
     <Form className="login-form text-dark">
       <Jumbotron>
@@ -64,4 +64,4 @@ function AdminPage() {
   );
 }
 
-export default AdminPage;
+export default LoginPage;

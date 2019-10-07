@@ -12,7 +12,7 @@ import {
 import Provider from "../service/ListProductsProvider";
 import Context from "../service/context";
 
-function ProductList() {
+const ProductList = () => {
   return (
     <Provider>
       <Context.Consumer>

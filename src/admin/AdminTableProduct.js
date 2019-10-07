@@ -11,7 +11,7 @@ import {
 import Provider from "../service/ListProductsProvider";
 import Context from "../service/context";
 
-function AdminTableProduct() {
+const AdminTableProduct = () => {
   return (
     <Jumbotron>
       <Card>
@@ -63,6 +63,6 @@ function AdminTableProduct() {
       </Card>
     </Jumbotron>
   );
-}
+};
 
 export default AdminTableProduct;

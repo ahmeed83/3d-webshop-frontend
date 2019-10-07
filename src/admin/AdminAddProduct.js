@@ -18,7 +18,7 @@ import {
 import AdminAddCategory from "./AdminAddCategory";
 import AdminUploadPic from "./AdminUploadPic";
 
-function AdminAddProduct(props) {
+const AdminAddProduct = props => {
   const [getCode, setCode] = useState("");
   const [getDescription, setDescription] = useState("");
   const [getPrice, setPrice] = useState("");
@@ -181,6 +181,6 @@ function AdminAddProduct(props) {
       </Card>
     </Jumbotron>
   );
-}
+};
 
 export default AdminAddProduct;

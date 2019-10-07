@@ -23,3 +23,8 @@ function ProductSearch() {
 }
 
 export default ProductSearch;
+const ProductSerach = () => {
+  return ( "search" );
+}
+ 
+export default ProductSerach;
