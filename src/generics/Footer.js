@@ -3,7 +3,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="backround-footer page-footer font-small blue ">
+    <footer className="background-footer page-footer font-small blue ">
       <div className="text-center py-2 ml-5">
         <a href="/">
           <p>3D مكتب </p>

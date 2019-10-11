@@ -19,7 +19,7 @@ const ProductList = () => {
         {context => (
           <CardColumns>
             {context.products.map(product => (
-              <Card className="backround-list" key={product.id}>
+              <Card className="background-list" key={product.id}>
                 <a href={`/product/${product.id}`} className="stretched-link">
                   <CardImg
                     top
