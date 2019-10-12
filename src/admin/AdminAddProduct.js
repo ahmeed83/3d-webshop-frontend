@@ -64,7 +64,6 @@ const AdminAddProduct = props => {
         alert("File uploaded successfully.");
       }
     });
-    window.location.reload(false);
   };
 
   return (

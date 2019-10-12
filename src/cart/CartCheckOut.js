@@ -15,7 +15,6 @@ const CartCheckOut = ({ value }) => {
         shoppingCartId: value.id
       })
     });
-    window.location.reload(false);
   };
 
   return (

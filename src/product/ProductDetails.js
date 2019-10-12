@@ -30,7 +30,6 @@ const ProductDetailsPage = ({match}) => {
         quantity: getQuantity
       })
     });
-    window.location.reload(false);
   };
 
   return (

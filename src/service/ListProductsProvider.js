@@ -26,7 +26,6 @@ const ListProductsProvider = props => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: id })
     }).then(res => res.text()); // OR res.json()
-    window.location.reload(false);
   };
 
   return (

@@ -15,7 +15,6 @@ const AdminAddCategory = () => {
         name: getCategoryName
       })
     });
-    window.location.reload(false);
   };
 
   return (
