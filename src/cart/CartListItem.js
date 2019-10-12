@@ -1,18 +1,24 @@
 import React from "react";
 import { Row, Col, Card, CardImg, Button } from "reactstrap";
 
-const CartListItem = ({ value }) => {
-  const deleteItem = id => {
-    fetch(`/api/shopping-cart/${id}`, {
+const CartListItem = ({ cartItems, setCartItems, setOrderAvailable }) => {
+  const deleteItem = e => {
+    fetch(`/api/shopping-cart/${e.id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: id })
-    }).then(res => res.text()); // OR res.json()
+      body: JSON.stringify({ id: e.id })
+    });
+    setCartItems(cartItems.filter(item => item !== e));
+
+    // If only one element left, thats mean that the array is empty
+    if (cartItems.length === 1) {
+      setOrderAvailable(false);
+    }
   };
 
   return (
     <Card className="mt-3" body>
-      {value.map(cartItem => (
+      {cartItems.map(cartItem => (
         <Row key={cartItem.id}>
           <Col sm="3" className="my-7">
             <a
@@ -37,7 +43,7 @@ const CartListItem = ({ value }) => {
             <Button
               href="#"
               color="danger"
-              onClick={() => deleteItem(cartItem.id)}
+              onClick={() => deleteItem(cartItem)}
             >
               Remove from order list
             </Button>

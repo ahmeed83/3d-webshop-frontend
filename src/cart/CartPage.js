@@ -10,7 +10,7 @@ const CartPage = () => {
   }, []);
   const [getCart, setCart] = useState([]);
   const [cartItems, setCartItems] = useState([]);
-  const [orderAvaliable, setOrderAvaliable] = useState([]);
+  const [orderAvailable, setOrderAvailable] = useState([]);
 
   const fetchProducts = async () => {
     try {
@@ -20,20 +20,20 @@ const CartPage = () => {
       setCartItems(cart.shoppingCartItemEntities);
 
       if (cart.shoppingCartItemEntities.length === 0) {
-        setOrderAvaliable(false);
+        setOrderAvailable(false);
       }
     } catch (error) {
       console.log("reason: " + error);
-      setOrderAvaliable(false);
+      setOrderAvailable(false);
     }
   };
 
   return (
     <Container className="text-dark">
-      {orderAvaliable ? (
+      {orderAvailable ? (
         <div>
           <CartCheckOut value={getCart} />
-          <CartListItem value={cartItems} />
+          <CartListItem cartItems={cartItems} setCartItems={setCartItems} setOrderAvailable={setOrderAvailable}/>
         </div>
       ) : (
         <CartEmptyPage />
