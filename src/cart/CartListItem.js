@@ -10,7 +10,7 @@ const CartListItem = ({ cartItems, setCartItems, setOrderAvailable }) => {
     });
     setCartItems(cartItems.filter(item => item !== e));
 
-    // If only one element left, thats mean that the array is empty
+    // If only one element left, thats mean that the array is empty in the server
     if (cartItems.length === 1) {
       setOrderAvailable(false);
     }
