@@ -1,6 +1,6 @@
 import React from "react";
-import ProductList from "product/ProductList";
-import ProductCarouse from "product/ProductCarouse";
+import ProductList from "components/product/ProductList";
+import ProductCarouse from "components/product/ProductCarouse";
 import { Container, Col, Row } from "reactstrap";
 
 const HomePage = () => {
