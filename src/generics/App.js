@@ -5,12 +5,12 @@ import "./App.css";
 
 import HomePage from "./HomePage";
 import Footer from "./Footer";
-import AdminPage from "../admin/AdminPage";
-import LoginPage from "../login/LoginPage";
-import ProductDetailsPage from "../product/ProductDetails";
+import AdminPage from "admin/AdminPage";
+import LoginPage from "login/LoginPage";
+import ProductDetailsPage from "product/ProductDetails";
 import { Container } from "reactstrap";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import CartPage from "../cart/CartPage";
+import CartPage from "cart/CartPage";
 
 const App = () => {
   return (

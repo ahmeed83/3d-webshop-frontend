@@ -9,8 +9,8 @@ import {
   CardBody
 } from "reactstrap";
 
-import Provider from "../service/ListProductsProvider";
-import Context from "../service/context";
+import Provider from "service/ListProductsProvider";
+import Context from "service/context";
 
 const ProductList = () => {
   return (
