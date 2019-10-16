@@ -15,7 +15,7 @@ import CartPage from "components/cart/CartPage";
 const App = () => {
   return (
     <Router>
-      <Container className="background-app text-white" fluid>
+      <Container className="background-app app-text text-white" fluid>
         <Header />
         <Switch>
           <Route path="/" exact component={HomePage} />

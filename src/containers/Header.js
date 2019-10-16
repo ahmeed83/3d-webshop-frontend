@@ -6,7 +6,7 @@ import "./Header.css";
 
 const Header = () => {
   const navStyle = {
-    color: "lightblue"
+    color: "black"
   };
   return (
     <Navbar style={navStyle} dark expand="md">
@@ -25,11 +25,12 @@ const Header = () => {
         <NavItem>
           <NavLink href="/cart">
             <Icon size={32} icon={shoppingCart} />
+            <span class="badge badge-warning"> 1 </span>
           </NavLink>
         </NavItem>
-        <NavItem>
+        {/* <NavItem>
           <NavLink href="/login/">Login</NavLink>
-        </NavItem>
+        </NavItem> */}
       </Nav>
     </Navbar>
   );

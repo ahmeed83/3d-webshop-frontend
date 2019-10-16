@@ -2,8 +2,7 @@ import React from "react";
 import { Row, Col, Button, Card, CardHeader, CardBody, Form } from "reactstrap";
 
 const CartCheckOut = ({ value }) => {
-  const sendOrder = event => {
-    event.preventDefault();
+  const sendOrder = () => {
     fetch("/api/send-email", {
       method: "POST",
       headers: {
@@ -29,7 +28,7 @@ const CartCheckOut = ({ value }) => {
             </Col> */}
             <Col sm="9" className="my-7">
               <p>
-                We will recieve your order if you click the link below. After
+                We will receive your order if you click the link below. After
                 that we will contact you
               </p>
             </Col>
@@ -38,7 +37,7 @@ const CartCheckOut = ({ value }) => {
                 type="submit"
                 color="success"
                 block
-                onClick={e => sendOrder(e.target.value)}
+                onClick={() => sendOrder}
               >
                 Order
               </Button>

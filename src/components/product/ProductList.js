@@ -31,7 +31,7 @@ const ProductList = () => {
                 <CardBody>
                   <CardTitle>{product.name}</CardTitle>
                   <CardSubtitle>
-                    <h5>Price: ${product.price}</h5>
+                    <h5>السعر ${product.price}</h5>
                   </CardSubtitle>
                 </CardBody>
               </Card>

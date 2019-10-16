@@ -1,16 +1,19 @@
 .img {
   display: block;
-  max-width:230px;
-  max-height:25px;
+  max-width: 230px;
+  max-height: 25px;
   width: auto;
   height: auto;
 }
 
 .background-app {
-  background-color: rgb(11, 8, 46)
+  background-color: rgb(7, 17, 55);
 }
-
 
 .background-list {
   background-color: rgb(14, 14, 73);
+}
+
+.app-text {
+  text-align: right;
 }

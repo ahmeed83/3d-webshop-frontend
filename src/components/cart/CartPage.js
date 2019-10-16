@@ -33,7 +33,11 @@ const CartPage = () => {
       {orderAvailable ? (
         <div>
           <CartCheckOut value={getCart} />
-          <CartListItem cartItems={cartItems} setCartItems={setCartItems} setOrderAvailable={setOrderAvailable}/>
+          <CartListItem
+            cartItems={cartItems}
+            setCartItems={setCartItems}
+            setOrderAvailable={setOrderAvailable}
+          />
         </div>
       ) : (
         <CartEmptyPage />
