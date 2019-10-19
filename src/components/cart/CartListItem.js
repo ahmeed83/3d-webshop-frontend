@@ -2,13 +2,13 @@ import React from "react";
 import { Row, Col, Card, CardImg, Button } from "reactstrap";
 
 const CartListItem = ({ cartItems, setCartItems, setOrderAvailable }) => {
-  const deleteItem = e => {
-    fetch(`/api/shopping-cart/${e.id}`, {
+  const deleteItem = cartItem => {
+    fetch(`/api/shopping-cart/${cartItem.id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: e.id })
+      body: JSON.stringify({ id: cartItem.id })
     });
-    setCartItems(cartItems.filter(item => item !== e));
+    setCartItems(cartItems.filter(item => item !== cartItem));
 
     // If only one element left, thats mean that the array is empty in the server
     if (cartItems.length === 1) {

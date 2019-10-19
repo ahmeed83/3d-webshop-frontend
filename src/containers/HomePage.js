@@ -5,7 +5,7 @@ import { Container, Col, Row } from "reactstrap";
 
 const HomePage = () => {
   return (
-    <Container>
+    <Container className="my-3">
       <Row>
         <Col lg="12">
           <div className="mt-3">

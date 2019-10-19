@@ -2,43 +2,50 @@ import React, { useState, useEffect } from "react";
 import PackageContext from "./context";
 
 const ListProductsProvider = props => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const [getProducts, setProducts] = useState([]);
-  const [, setDeleteProducts] = useState([]);
+    fetchProducts();    
+  }, [products.length]);
 
   const fetchProducts = async () => {
     try {
       const data = await fetch("/api/products");
       const products = await data.json();
       setProducts(products);
+      setLoading(false);
     } catch (error) {
       console.log("reason: " + error);
     }
   };
 
-  const deleteProduct = id => {
-    fetch(`/api/products/${id}`, {
+  const deleteProduct = product => {
+    fetch(`/api/products/${product.id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: id })
-    }).then(res => res.text()); // OR res.json()
+      body: JSON.stringify({ id: product.id })
+    });
+    setProducts(products.filter(item => !products.includes(item)));
   };
 
   return (
-    <PackageContext.Provider
-      value={{
-        products: getProducts,
-        deleteProduct: (product) => {
-          setDeleteProducts(deleteProduct(product))
-        }
-      }}
-    >
-      {props.children}
-    </PackageContext.Provider>
+    <div>
+      {loading ? (
+        <div>...loading</div>
+      ) : (
+        <div>
+          <PackageContext.Provider
+            value={{
+              products: products,
+              deleteProduct: deleteProduct
+            }}
+          >
+            {props.children}
+          </PackageContext.Provider>
+        </div>
+      )}
+    </div>
   );
 };
 

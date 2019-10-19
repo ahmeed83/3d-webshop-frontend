@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  CardHeader,
   CardBody,
   Table,
   Card,
@@ -15,8 +14,7 @@ const AdminTableProduct = () => {
   return (
     <Jumbotron>
       <Card>
-        <h5 className="mb-3">Product list</h5>
-        <CardHeader>Data Table Products</CardHeader>
+        <h5 className="my-3 pl-3">Product list</h5>
         <CardBody>
           <Provider>
             <Context.Consumer>
@@ -47,7 +45,7 @@ const AdminTableProduct = () => {
                             type="submit"
                             color="danger"
                             block
-                            onClick={() => context.deleteProduct(product.id)}
+                            onClick={() => context.deleteProduct(product)}
                           >
                             Delete
                           </Button>

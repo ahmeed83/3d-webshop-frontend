@@ -25,7 +25,7 @@ const Header = () => {
         <NavItem>
           <NavLink href="/cart">
             <Icon size={32} icon={shoppingCart} />
-            <span class="badge badge-warning"> 1 </span>
+            <span className="badge badge-warning"> 1 </span>
           </NavLink>
         </NavItem>
         {/* <NavItem>
